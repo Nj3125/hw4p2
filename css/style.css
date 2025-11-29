@@ -1,0 +1,206 @@
+/*=Title========================================================*/
+/* Title Bar */
+#title {
+    background-color: rgb(187, 3, 3); /* Background box color */
+    color: white;  /* Text color */
+    margin: 0 auto;  /* Center box horizontally */
+    width: 80%;                       
+
+    padding: 10px;
+    border-bottom: 8px solid rgb(107, 1, 1);
+    border-right: 5px solid rgb(107, 1, 1);
+    border-radius: 6px;
+
+    display: flex;                    
+    align-items: center;  /* Vertical alignment */
+    justify-content: space-between;  /* Spread title and inputs */
+    gap: 20px;
+
+    position: relative;  /* For pseudo-element positioning */
+    font-weight: bold;
+}
+
+/* Decorative Line Behind Title */
+#title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;  /* Line thickness */
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 0;  /* Behind everything */
+}
+
+/* Title Text */
+#title h1 {
+    margin: 0;
+    font-size: 1.5em;
+    position: relative;
+    z-index: 1;  /* Above the line */
+    background-color: rgb(187, 3, 3);
+    padding: 0 6px;
+}
+
+/* Inputs Container */
+#title .inputs {
+    display: flex;
+    align-items: center;
+    gap: 100px;  /* Space between rows group, columns group, and button */
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;  /* Above the line */
+    
+    padding: 0 6px;
+}
+
+/* Row & Column Groups */
+.inputs .rows, .inputs .cols {
+    display: flex;
+    align-items: center;
+    background-color: rgb(187, 3, 3);
+    padding-left:10px;
+    padding-right:10px;
+    gap: 8px;  /* Space between individual label/input pairs */
+}
+
+/* Labels */
+#title label {
+    font-weight: bold;
+}
+
+/* Inputs */
+#title input {
+    width: 70px;
+    padding: 4px 6px;
+    border: 1px solid rgb(187, 3, 3);
+    background-color: #fff5f5;
+    color: rgb(90, 0, 0);
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+#title input:focus {
+    outline: none;
+    border-color: darkred;
+    box-shadow: 0 0 5px rgba(187, 3, 3, 0.5);
+}
+
+/* Button */
+.inputs button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: white;
+    color: rgb(187, 3, 3);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Button hover effect */
+.inputs button:hover {
+    background-color: #ffeaea;
+}
+
+/* Button default params */
+.buttons {
+    background-color: rgb(187, 3, 3);
+    padding-left:10px;
+    padding-right:10px;
+}
+/*=Body========================================================*/
+/* Background */
+body {
+    background-color: wheat;
+}
+
+/* Body area */
+.body {
+    background-color: #ffeaea;
+    border: 8px solid rgb(150, 67, 67);
+    width:80%;
+    margin: 0 auto;
+}
+/* Paragraph before list */ 
+p {
+    margin:0px;
+    padding:10px;
+}
+
+/* List of requirements for valid input */
+ul {
+    margin:0px;
+}
+
+/* Default list item settings */
+#conditions li {
+    transition: color 0.2s, font-weight 0.2s;
+    width:300px;
+    margin:2px;
+    position: relative;
+    padding-left: 25px; /* Space for❗*/
+}
+
+#conditions li.invalid {
+    background-color: #ffb3b3;
+    border-radius: 6px;
+}
+/* Adds red exclamation point on unmet requirements in the list */
+#conditions li.invalid::after {
+    content: "❗";
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*=Table========================================================*/
+/* Table */
+table {
+    border-collapse: collapse;
+    margin: 0;
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Header row & column*/
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    width: 50px;
+}
+
+th {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+/* Table Container */
+#mult-table {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 80%;
+    max-height: 800px;
+    overflow: auto;
+    display: block;
+    
+    border: 8px solid rgb(87, 81, 81);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Even rows + odd columns, and odd rows + even columns */
+#mult-table table tr:nth-child(even) td:nth-child(odd), #mult-table table tr:nth-child(odd) td:nth-child(even) {
+    background-color: rgb(238, 238, 238); /* alternate color */
+}
+
+/*=Sliders========================================================*/
+/* Make sliders wider and add spacing */
+#minrow-slider, #maxrow-slider, #mincol-slider, #maxcol-slider {
+    width: 50px;
+    margin: 10px 0 10px 0;
+}
